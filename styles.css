@@ -1,0 +1,137 @@
+:root{
+  --void:#080810; --deep:#0d0d1a; --surface:#12121f; --line:#1f1f3a; --card-line:#26264a;
+  --text:#f0f0ff; --muted:#b8b8d4; --dim:#9a9ab8;
+  --blue:#2a2aff; --neon:#00aaff; --purple:#aa00ff; --violet:#cc44ff;
+  --gold:#e0b04a; --gold-line:#3a3220; --gold-bg:#14120c;
+  --display:'Cinzel Decorative', Georgia, serif;
+  --serif:'Cinzel', Georgia, serif;
+  --sans:'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--void);color:var(--text);font-family:var(--sans);font-size:18px;line-height:1.55}
+img,svg{max-width:100%}
+a{color:var(--text);text-decoration:none}
+a:hover{color:var(--neon)}
+:focus-visible{outline:2px solid var(--neon);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+section{border-bottom:1px solid var(--line);scroll-margin-top:84px}
+.pad{padding:104px 0}
+.alt{background:var(--deep)}
+h1,h2,h3,p{margin:0}
+.kicker{font-family:var(--serif);font-weight:600;font-size:14px;letter-spacing:5px;text-transform:uppercase;color:var(--neon)}
+.h2{font-family:var(--serif);font-weight:700;font-size:clamp(34px,5vw,48px);line-height:1.1}
+.lead{font-size:20px;color:var(--muted);max-width:720px}
+.intro{display:flex;flex-direction:column;gap:12px;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 26px;border-radius:4px;font-weight:700;font-size:17px;letter-spacing:1px;text-transform:uppercase;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#3d3dff;color:#fff}
+.btn-ghost{border-color:#4a4a7a;color:var(--text)}
+.btn-gold{background:var(--gold);color:#14100a}
+.btn-gold:hover{background:#f2c96b;color:#14100a}
+.row{display:flex;flex-wrap:wrap;gap:24px}
+
+/* Header */
+header{position:sticky;top:0;z-index:10;background:rgba(8,8,16,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:900;font-size:22px}
+.links{display:flex;flex-wrap:wrap;align-items:center;gap:24px;font-weight:600;font-size:16px;letter-spacing:1px;text-transform:uppercase}
+.links .btn{min-height:44px;padding:10px 18px;font-size:15px}
+
+/* Hero */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:64px;padding:120px 0 112px}
+.hero-text{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(52px,9vw,96px);line-height:1}
+.tagline{font-family:var(--serif);font-weight:700;font-size:clamp(22px,3vw,30px);line-height:1.25;color:var(--violet)}
+.hero .lead{font-size:21px;max-width:580px}
+.hero-mark{flex:1 1 280px;display:flex;justify-content:center}
+.hero-mark svg{width:min(340px,70vw);height:auto}
+
+/* Pillars */
+.pillar{flex:1 1 300px;background:var(--surface);border:1px solid var(--card-line);border-radius:8px;padding:36px;display:flex;flex-direction:column;gap:14px}
+.pillar h3{font-family:var(--serif);font-size:24px}
+.pillar p{color:var(--muted)}
+
+/* Projects index */
+.proj{flex:1 1 300px;border-radius:8px;padding:32px;display:flex;flex-direction:column;gap:12px;color:var(--text)}
+.proj .label{font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+.proj .name{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.15}
+.proj .desc{color:var(--muted)}
+.proj .go{font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:15px;padding-top:8px}
+.proj-s1{background:var(--gold-bg);border:1px solid var(--gold-line)}
+.proj-s1 .label,.proj-s1 .name{color:var(--gold)}
+.proj-s1 .name{letter-spacing:3px}
+.proj-liga{background:var(--surface);border:1px solid var(--card-line)}
+.proj-liga .label{color:var(--neon)}
+.proj-soon{border:1px dashed #3a3a6a}
+.proj-soon .label{color:var(--dim)}
+a.proj:hover{color:var(--text);border-color:var(--neon)}
+a.proj-s1:hover{border-color:var(--gold)}
+
+/* Stage One */
+.s1{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}
+.s1-text{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.s1-text .kicker{color:var(--gold)}
+.s1-title{font-family:var(--serif);font-weight:700;font-size:clamp(48px,7vw,72px);line-height:1;letter-spacing:4px;color:var(--gold)}
+.facts{display:flex;flex-wrap:wrap;gap:32px;padding-top:8px}
+.fact span{display:block}
+.fact .k{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--dim)}
+.fact .v{font-weight:700;font-size:22px}
+.s1-list{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px;list-style:none;margin:0;padding:0}
+.s1-list li{display:flex;gap:20px;align-items:flex-start;border-top:1px solid var(--gold-line);padding-top:20px}
+.s1-list .num{font-family:var(--serif);font-weight:700;font-size:18px;color:var(--gold);min-width:36px}
+.s1-list h3{font-size:22px;margin-bottom:4px}
+.s1-list p{color:var(--muted)}
+
+/* Liga */
+.step{flex:1 1 220px;border:1px solid var(--card-line);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.step .label{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--neon);font-weight:700}
+.step h3{font-size:22px}
+.step p{color:var(--muted)}
+.step-final{border-color:var(--gold);background:var(--gold-bg)}
+.step-final .label{color:var(--gold)}
+.req{margin-top:24px;background:var(--surface);border:1px solid var(--card-line);border-radius:8px;padding:32px;display:flex;flex-direction:column;gap:14px}
+.req h3{font-family:var(--serif);font-size:24px}
+.req p{color:var(--muted)}
+.req strong{color:var(--text)}
+
+/* Team */
+.member{flex:1 1 220px;display:flex;flex-direction:column;gap:14px}
+.photo{aspect-ratio:1/1;background:#16162a;border:1px solid var(--card-line);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#6a6a90;font-size:15px;letter-spacing:2px;text-transform:uppercase}
+.member h3{font-size:22px}
+.member p{color:var(--neon);font-weight:600}
+
+/* Contact */
+.contact{display:flex;flex-wrap:wrap;gap:56px}
+.contact-text{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.channels{display:flex;flex-direction:column;gap:8px;padding-top:12px;font-size:19px}
+form{flex:1 1 460px;min-width:0;background:var(--surface);border:1px solid var(--card-line);border-radius:8px;padding:36px;display:flex;flex-direction:column;gap:20px}
+.field{flex:1 1 200px;display:flex;flex-direction:column;gap:6px}
+label{font-weight:600;font-size:16px}
+input,select,textarea{background:var(--void);border:1px solid #3a3a6a;border-radius:4px;color:var(--text);padding:12px 14px;font-size:17px;font-family:inherit;min-height:48px;width:100%}
+textarea{resize:vertical;min-height:120px}
+input:focus,select:focus,textarea:focus{border-color:var(--neon);outline:none;box-shadow:0 0 0 2px rgba(0,170,255,.35)}
+.form-note{font-size:15px;color:var(--dim)}
+
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-top:40px;padding-bottom:40px;color:var(--dim);font-size:16px}
+footer .brand{font-size:20px;font-weight:700}
+
+@media (max-width:640px){
+  .pad{padding:72px 0}
+  .hero{padding:72px 0 64px;gap:40px}
+  .links{gap:16px;font-size:15px}
+  .pillar,.proj,.req,form{padding:24px}
+}
+
+/* Nosotros */
+.about{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;margin-bottom:72px}
+.about-text{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.about-text p{color:var(--muted);font-size:19px;max-width:640px}
+.values{flex:1 1 360px;min-width:0;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+.values li{border-top:1px solid var(--card-line);padding:18px 0;color:var(--muted)}
+.values li strong{display:block;color:var(--text);font-size:20px;margin-bottom:2px}
+.sub{font-family:var(--serif);font-weight:700;font-size:28px;margin:72px 0 28px}
+.nav-current{color:var(--neon)}
+.proj .go{color:var(--text)}
+.page-head{padding:96px 0 56px}
