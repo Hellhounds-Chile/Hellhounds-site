@@ -85,13 +85,6 @@
       </article>
     </div>
 
-    <h3 class="sub" id="equipo">El equipo</h3>
-    <div class="row">
-      <div class="member"><div class="photo">Foto</div><div><h3>[NOMBRE]</h3><p>CEO y fundador</p></div></div>
-      <div class="member"><div class="photo">Foto</div><div><h3>[NOMBRE]</h3><p>[ROL]</p></div></div>
-      <div class="member"><div class="photo">Foto</div><div><h3>[NOMBRE]</h3><p>[ROL]</p></div></div>
-      <div class="member"><div class="photo">Foto</div><div><h3>[NOMBRE]</h3><p>[ROL]</p></div></div>
-    </div>
   </div>
 </section>
 
@@ -103,8 +96,7 @@
       <p class="lead">¿Eres de un colegio, universidad o marca y quieres trabajar con nosotros? ¿Prensa? Escríbenos y te respondemos.</p>
       <div class="channels">
         <a href="mailto:contacto.hellhounds@gmail.com">contacto.hellhounds@gmail.com</a>
-        <!-- TODO: cuando estén listos, cambiar cada <span> por <a href="URL"> con el usuario o la invitación -->
-        <span>Instagram · próximamente</span>
+        <a href="https://www.instagram.com/hellhounds.cl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram oficial de HellHounds (abre en una pestaña nueva)">Instagram · @hellhounds.cl</a>
         <span>Discord · próximamente</span>
       </div>
     </div>
@@ -137,8 +129,8 @@
 </footer>
 
 <script>
-// Correo que recibe los mensajes del formulario. Cámbialo si usas otra dirección.
-const CONTACT_EMAIL = 'contacto@hellhounds.cl';
+// Mantener sincronizado con el correo visible en la sección Contacto.
+const CONTACT_EMAIL = 'contacto.hellhounds@gmail.com';
 document.getElementById('contact-form').addEventListener('submit', function (e) {
   e.preventDefault();
   const f = e.target;
