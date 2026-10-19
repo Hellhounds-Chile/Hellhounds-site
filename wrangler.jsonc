@@ -2,8 +2,7 @@
   "name": "hellhounds",
   "compatibility_date": "2026-10-19",
   "assets": {
-    "directory": ".",
-    "not_found_handling": "none"
+    "directory": "."
   },
   "previews": {}
 }
