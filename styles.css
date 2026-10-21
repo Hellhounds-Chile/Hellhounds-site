@@ -113,6 +113,8 @@ a.proj-s1:hover{border-color:var(--gold)}
 .channels{display:flex;flex-direction:column;gap:8px;padding-top:12px;font-size:19px}
 form{flex:1 1 460px;min-width:0;background:var(--surface);border:1px solid var(--card-line);border-radius:8px;padding:36px;display:flex;flex-direction:column;gap:20px}
 .field{flex:1 1 200px;display:flex;flex-direction:column;gap:6px}
+/* En el formulario, los campos apilados no deben estirarse verticalmente. */
+#contact-form > .field{flex:0 0 auto}
 label{font-weight:600;font-size:16px}
 input,select,textarea{background:var(--void);border:1px solid #6a6a9a;border-radius:4px;color:var(--text);padding:12px 14px;font-size:17px;font-family:inherit;min-height:48px;width:100%}
 textarea{resize:vertical;min-height:120px}
