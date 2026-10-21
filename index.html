@@ -120,8 +120,13 @@
         </select>
       </div>
       <div class="field"><label for="f-msg">Mensaje</label><textarea id="f-msg" name="mensaje" rows="4" required></textarea></div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAFfR6GEIsPa_AjQl" data-theme="dark"></div>
+      <div class="field" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
+        <label for="f-website">Sitio web (dejar vacío)</label>
+        <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
       <button type="submit" class="btn btn-primary" style="align-self:flex-start">Enviar mensaje</button>
-      <p class="form-note">Al enviar se abrirá tu aplicación de correo con el mensaje listo.</p>
+      <p class="form-note" id="contact-status" role="status" aria-live="polite">Tu mensaje se enviará de forma segura desde este formulario.</p>
     </form>
   </div>
 </section>
@@ -134,15 +139,50 @@
   </div>
 </footer>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
-// Mantener sincronizado con el correo visible en la sección Contacto.
-const CONTACT_EMAIL = 'contacto.hellhounds@gmail.com';
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const f = e.target;
-  const subject = 'Contacto web: ' + f.tipo.value + ' - ' + f.nombre.value;
-  const body = 'Nombre: ' + f.nombre.value + '\nCorreo: ' + f.correo.value + '\nTipo: ' + f.tipo.value + '\n\n' + f.mensaje.value;
-  window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+const contactForm = document.getElementById('contact-form');
+const contactStatus = document.getElementById('contact-status');
+const contactButton = contactForm.querySelector('button[type="submit"]');
+
+contactForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  if (contactButton.disabled) return;
+  const data = new FormData(contactForm);
+  const token = data.get('cf-turnstile-response');
+  if (!token) {
+    contactStatus.textContent = 'Completa la verificación de seguridad antes de enviar.';
+    return;
+  }
+  contactButton.disabled = true;
+  contactButton.textContent = 'Enviando…';
+  contactStatus.textContent = 'Estamos enviando tu mensaje…';
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre: data.get('nombre'),
+        correo: data.get('correo'),
+        tipo: data.get('tipo'),
+        mensaje: data.get('mensaje'),
+        website: data.get('website'),
+        token
+      })
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) {
+      throw new Error(result.error || 'Ocurrió un problema al enviar el mensaje.');
+    }
+    contactForm.reset();
+    contactStatus.textContent = result.message || '¡Mensaje enviado! Te responderemos pronto.';
+  } catch (error) {
+    contactStatus.textContent = error.message || 'No se pudo enviar el mensaje. Inténtalo de nuevo.';
+  } finally {
+    if (window.turnstile) window.turnstile.reset();
+    contactButton.disabled = false;
+    contactButton.textContent = 'Enviar mensaje';
+  }
 });
 </script>
 </body>
