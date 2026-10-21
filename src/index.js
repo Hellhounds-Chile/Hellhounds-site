@@ -46,7 +46,7 @@ export default {
     const [name, email, category, message] = clean;
     const categories = ["Colegio o universidad", "Marca o auspiciador", "Prensa", "Otro"];
     if (name.length < 2 || name.length > 100 ||
-        email.length > 254 || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) ||
+        email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
         !categories.includes(category) || message.length < 10 || message.length > 4000 ||
         token.length < 10 || token.length > 4096) {
       return json({ error: "Revisa los datos ingresados." }, 400);
