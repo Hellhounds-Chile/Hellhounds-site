@@ -1,0 +1,9 @@
+.git/
+.claude/
+openspec/
+auditoria.md
+README.md
+wrangler.jsonc
+.assetsignore
+node_modules/
+src/

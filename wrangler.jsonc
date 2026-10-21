@@ -1,0 +1,12 @@
+{
+  "name": "hellhounds",
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    "directory": ".",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "previews": {},
+  "main": "./src/index.js"
+}
